@@ -2,6 +2,9 @@
   "name": "iptvsubs8k",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +15,7 @@
     "audit:seo": "node scripts/audit_seo_2026.js"
   },
   "dependencies": {
-    "next": "^14.2.18",
+    "next": "14.2.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "lucide-react": "^0.454.0"
