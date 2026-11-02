@@ -1,0 +1,337 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 248, 250, 252;
+  --brand: #FF6B00;
+  --brand-dark: #EA580C;
+  --ink: #0B1120;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    color: #0F172A;
+    background: #FFFFFF;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'cv11', 'ss01';
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Display typeface for all headings, tighter tracking for a premium feel */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), var(--font-inter), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  h1, h2 {
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+
+  /* Heavy "black" weight reads cleaner as extrabold in the display face */
+  h1.font-black, h2.font-black, h3.font-black, h4.font-black,
+  h1 .font-black, h2 .font-black {
+    font-weight: 800;
+  }
+
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  img {
+    -webkit-user-drag: none;
+  }
+}
+
+::selection {
+  background: #FF6B00;
+  color: #FFFFFF;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 999px;
+  border: 2px solid #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Modern Light Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: #FFFFFF;
+  border-color: rgba(255, 107, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(255, 107, 0, 0.06);
+}
+
+/* Typography Gradient Utilities */
+.text-gradient-orange {
+  background: linear-gradient(135deg, #FF8A3D 0%, #FF6B00 45%, #EA580C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #FF6B00 0%, #EA580C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle glow utilities */
+.glow-orange {
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.2);
+}
+
+/* Refined transitions */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark section backdrop: soft orange glow + faint grid */
+.bg-stage {
+  background-color: #0B1120;
+  background-image:
+    radial-gradient(60% 50% at 75% 0%, rgba(255, 107, 0, 0.22) 0%, rgba(255, 107, 0, 0) 70%),
+    radial-gradient(40% 40% at 0% 100%, rgba(255, 138, 61, 0.10) 0%, rgba(255, 138, 61, 0) 70%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 44px 44px, 44px 44px;
+}
+
+/* Light section backdrop: dotted texture */
+.bg-dots {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Gradient icon tile used across feature cards */
+.icon-tile {
+  background: linear-gradient(145deg, #FF8A3D 0%, #FF6B00 50%, #EA580C 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 8px 20px -6px rgba(255, 107, 0, 0.45);
+  color: #FFFFFF;
+}
+
+/* Gradient border wrapper (1px) */
+.border-gradient {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+    linear-gradient(135deg, rgba(255, 107, 0, 0.55), rgba(226, 232, 240, 0.9) 45%, rgba(226, 232, 240, 0.9)) border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   DARK MODE
+   Toggled by the `dark` class on <html> (see ThemeToggle + inline script in
+   layout.tsx). The remaps below translate the light palette used across all
+   pages into dark equivalents. They use :where(.dark) so their specificity
+   equals a plain utility: explicit `dark:` variants in components still win.
+   ========================================================================== */
+
+.dark {
+  color-scheme: dark;
+}
+
+:where(.dark) body { background: #0B1120; color: #E2E8F0; }
+:where(.dark) ::-webkit-scrollbar-track { background: #0B1120; }
+:where(.dark) ::-webkit-scrollbar-thumb { background: #334155; border-color: #0B1120; }
+
+/* Surfaces */
+:where(.dark) .bg-white { background-color: #111A2C; }
+:where(.dark) .bg-white\/95, :where(.dark) .bg-white\/90, :where(.dark) .bg-white\/85 { background-color: rgba(17, 26, 44, 0.9); }
+:where(.dark) .bg-white\/80, :where(.dark) .bg-white\/70 { background-color: rgba(17, 26, 44, 0.75); }
+:where(.dark) .bg-white\/60, :where(.dark) .bg-white\/50, :where(.dark) .bg-white\/30 { background-color: rgba(17, 26, 44, 0.55); }
+:where(.dark) .bg-slate-50 { background-color: #0E1627; }
+:where(.dark) .bg-slate-50\/80, :where(.dark) .bg-slate-50\/70, :where(.dark) .bg-slate-50\/60 { background-color: rgba(14, 22, 39, 0.8); }
+:where(.dark) .bg-slate-100, :where(.dark) .bg-slate-100\/90 { background-color: #1A2438; }
+:where(.dark) .bg-slate-200 { background-color: #243049; }
+:where(.dark) .bg-slate-200\/80 { background-color: rgba(255, 255, 255, 0.07); }
+:where(.dark) .bg-slate-900 { background-color: #1E293F; }
+:where(.dark) .bg-surface, :where(.dark) .bg-surface-warm { background-color: #0E1627; }
+:where(.dark) .hover\:bg-white:hover { background-color: #16213A; }
+:where(.dark) .hover\:bg-slate-50:hover { background-color: #16213A; }
+:where(.dark) .hover\:bg-slate-100:hover { background-color: #1E2A42; }
+:where(.dark) .hover\:bg-slate-800:hover { background-color: #2A3854; }
+
+/* Brand tints */
+:where(.dark) .bg-orange-50 { background-color: rgba(255, 107, 0, 0.10); }
+:where(.dark) .bg-orange-50\/60, :where(.dark) .bg-orange-50\/70, :where(.dark) .bg-orange-50\/80 { background-color: rgba(255, 107, 0, 0.08); }
+:where(.dark) .bg-orange-100 { background-color: rgba(255, 107, 0, 0.16); }
+:where(.dark) .hover\:bg-orange-50:hover, :where(.dark) .hover\:bg-orange-50\/70:hover { background-color: rgba(255, 107, 0, 0.14); }
+:where(.dark) .bg-emerald-50 { background-color: rgba(16, 185, 129, 0.12); }
+:where(.dark) .bg-amber-50 { background-color: rgba(245, 158, 11, 0.12); }
+:where(.dark) .bg-red-50 { background-color: rgba(239, 68, 68, 0.12); }
+:where(.dark) .bg-blue-50, :where(.dark) .bg-sky-50 { background-color: rgba(56, 189, 248, 0.12); }
+
+/* Text */
+:where(.dark) .text-slate-950, :where(.dark) .text-slate-900 { color: #F1F5F9; }
+:where(.dark) .text-slate-800 { color: #E2E8F0; }
+:where(.dark) .text-slate-700 { color: #CBD5E1; }
+:where(.dark) .text-slate-600 { color: #A3AFC2; }
+:where(.dark) .text-slate-500 { color: #8491A8; }
+:where(.dark) .hover\:text-slate-900:hover, :where(.dark) .group:hover .group-hover\:text-slate-900 { color: #FFFFFF; }
+:where(.dark) .text-\[\#EA580C\], :where(.dark) .text-\[\#C2410C\], :where(.dark) .text-orange-600 { color: #FF8A3D; }
+:where(.dark) .text-emerald-600, :where(.dark) .text-emerald-700 { color: #34D399; }
+:where(.dark) .text-emerald-800 { color: #6EE7B7; }
+:where(.dark) .text-amber-700 { color: #FBBF24; }
+:where(.dark) .text-red-600 { color: #F87171; }
+:where(.dark) .text-blue-600, :where(.dark) .text-sky-600 { color: #7DD3FC; }
+
+/* Borders, rings, dividers */
+:where(.dark) .border-slate-100, :where(.dark) .border-card-border-subtle { border-color: rgba(255, 255, 255, 0.06); }
+:where(.dark) .border-slate-200, :where(.dark) .border-slate-200\/90, :where(.dark) .border-slate-200\/80,
+:where(.dark) .border-card-border, :where(.dark) .border-card-border\/60, :where(.dark) .border-card-border\/40 { border-color: rgba(255, 255, 255, 0.09); }
+:where(.dark) .border-slate-300, :where(.dark) .hover\:border-slate-300:hover { border-color: rgba(255, 255, 255, 0.16); }
+:where(.dark) .border-orange-100 { border-color: rgba(255, 107, 0, 0.18); }
+:where(.dark) .border-orange-200, :where(.dark) .border-orange-200\/80, :where(.dark) .hover\:border-orange-200:hover { border-color: rgba(255, 107, 0, 0.32); }
+:where(.dark) .border-orange-300, :where(.dark) .hover\:border-orange-300:hover { border-color: rgba(255, 107, 0, 0.5); }
+:where(.dark) .border-emerald-200, :where(.dark) .border-emerald-200\/80, :where(.dark) .border-emerald-200\/60 { border-color: rgba(16, 185, 129, 0.3); }
+:where(.dark) .border-red-200, :where(.dark) .border-red-50, :where(.dark) .border-amber-50, :where(.dark) .border-sky-200, :where(.dark) .border-blue-200\/60 { border-color: rgba(255, 255, 255, 0.1); }
+:where(.dark) .ring-slate-200, :where(.dark) .ring-slate-200\/80, :where(.dark) .ring-slate-200\/90 { --tw-ring-color: rgba(255, 255, 255, 0.09); }
+:where(.dark) .ring-orange-200 { --tw-ring-color: rgba(255, 107, 0, 0.35); }
+:where(.dark) .ring-emerald-200 { --tw-ring-color: rgba(16, 185, 129, 0.3); }
+:where(.dark) .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+:where(.dark) .divide-slate-200 > :not([hidden]) ~ :not([hidden]),
+:where(.dark) .divide-card-border\/60 > :not([hidden]) ~ :not([hidden]) { border-color: rgba(255, 255, 255, 0.08); }
+
+/* Gradients built from light stops */
+:where(.dark) .from-white { --tw-gradient-from: #111A2C var(--tw-gradient-from-position); --tw-gradient-to: rgba(17, 26, 44, 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+:where(.dark) .from-orange-50, :where(.dark) .from-orange-50\/40, :where(.dark) .from-orange-50\/70, :where(.dark) .from-orange-50\/80 { --tw-gradient-from: #1A1712 var(--tw-gradient-from-position); --tw-gradient-to: rgba(26, 23, 18, 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+:where(.dark) .via-white { --tw-gradient-to: rgba(17, 26, 44, 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), #111A2C var(--tw-gradient-via-position), var(--tw-gradient-to); }
+:where(.dark) .to-white { --tw-gradient-to: #111A2C var(--tw-gradient-to-position); }
+:where(.dark) .to-slate-50, :where(.dark) .to-slate-50\/80 { --tw-gradient-to: #0E1627 var(--tw-gradient-to-position); }
+
+/* Shadows read as glows on dark, so tone them down */
+:where(.dark) .shadow-card, :where(.dark) .shadow-sm, :where(.dark) .shadow-xs, :where(.dark) .shadow-2xs, :where(.dark) .shadow-md {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+}
+:where(.dark) .hover\:shadow-card-hover:hover { box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 107, 0, 0.25); }
+
+/* Custom helpers */
+:where(.dark) .bg-dots { background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px); }
+:where(.dark) .border-gradient {
+  background:
+    linear-gradient(#111A2C, #111A2C) padding-box,
+    linear-gradient(135deg, rgba(255, 107, 0, 0.6), rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.08)) border-box;
+}
+:where(.dark) .glass-panel { background: rgba(17, 26, 44, 0.85); border-color: rgba(255, 255, 255, 0.08); }
+
+/* Form fields */
+:where(.dark) input, :where(.dark) select, :where(.dark) textarea { color: #F1F5F9; }
+:where(.dark) .placeholder-slate-500::placeholder { color: #64748B; }
+
+/* Light hero backdrop: white with warm orange glow */
+.bg-hero-light {
+  background-color: #FFFFFF;
+  background-image:
+    radial-gradient(55% 60% at 85% 10%, rgba(255, 107, 0, 0.14) 0%, rgba(255, 107, 0, 0) 70%),
+    radial-gradient(40% 50% at 0% 100%, rgba(255, 138, 61, 0.10) 0%, rgba(255, 138, 61, 0) 70%),
+    linear-gradient(180deg, #FFF7F0 0%, #FFFFFF 60%);
+}
+:where(.dark) .bg-hero-light {
+  background-color: #0B1120;
+  background-image:
+    radial-gradient(60% 50% at 75% 0%, rgba(255, 107, 0, 0.22) 0%, rgba(255, 107, 0, 0) 70%),
+    radial-gradient(40% 40% at 0% 100%, rgba(255, 138, 61, 0.10) 0%, rgba(255, 138, 61, 0) 70%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 44px 44px, 44px 44px;
+}
+
+/* Performance: skip style/layout/paint for off-screen sections until they near the viewport.
+   Content stays in the DOM (crawlers and find-in-page still see it). */
+main > section:not(:first-child),
+main > div > section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* Accessibility (WCAG AA contrast) in light mode: brand orange and status colors used as
+   *text* get a darker tone on light surfaces; inside dark panels they keep the bright tone. */
+:where(html:not(.dark)) .text-\[\#FF6B00\],
+:where(html:not(.dark)) .text-\[\#EA580C\],
+:where(html:not(.dark)) .text-orange-600 { color: #C2410C; }
+:where(html:not(.dark)) .text-emerald-400, :where(html:not(.dark)) .text-emerald-500, :where(html:not(.dark)) .text-emerald-600 { color: #047857; }
+:where(html:not(.dark)) .text-red-600 { color: #B91C1C; }
+:where(html:not(.dark)) .text-amber-400, :where(html:not(.dark)) .text-amber-500 { color: #B45309; }
+:where(html:not(.dark)) .text-rose-400 { color: #BE123C; }
+:where(html:not(.dark)) .text-red-400 { color: #B91C1C; }
+:where(html:not(.dark)) .text-slate-500 { color: #556274; }
+:where(html:not(.dark)) :is(.bg-stage, .bg-slate-900, .bg-slate-950, .from-slate-900, .bg-\[\#0B1120\]) .text-\[\#FF6B00\] { color: #FF8A3D; }
+:where(html:not(.dark)) :is(.bg-stage, .bg-slate-900, .bg-slate-950, .from-slate-900, .bg-\[\#0B1120\]) .text-\[\#EA580C\] { color: #FF8A3D; }
+:where(html:not(.dark)) :is(.bg-stage, .bg-slate-900, .bg-slate-950, .from-slate-900, .bg-\[\#0B1120\]) .text-emerald-400 { color: #34D399; }
+:where(html:not(.dark)) :is(.bg-stage, .bg-slate-900, .bg-slate-950, .from-slate-900, .bg-\[\#0B1120\]) .text-amber-400 { color: #FBBF24; }
+:where(html:not(.dark)) :is(.bg-stage, .bg-slate-900, .bg-slate-950, .from-slate-900, .bg-\[\#0B1120\]) .text-rose-400 { color: #FB7185; }
+:where(html:not(.dark)) :is(.bg-stage, .bg-slate-900, .bg-slate-950, .from-slate-900, .bg-\[\#0B1120\]) .text-red-400 { color: #F87171; }
+:where(html:not(.dark)) :is(.bg-stage, .bg-slate-900, .bg-slate-950, .from-slate-900, .bg-\[\#0B1120\]) .text-slate-500 { color: #94A3B8; }
+
+/* Footer is long and below the fold */
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
