@@ -15,7 +15,7 @@
     "audit:seo": "node scripts/audit_seo_2026.js"
   },
   "dependencies": {
-    "next": "14.2.35",
+    "next": "^14.2.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "lucide-react": "^0.454.0"

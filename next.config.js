@@ -7,7 +7,7 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  distDir: process.env.NEXT_DIST_DIR || 'build',
+  distDir: process.env.VERCEL ? undefined : (process.env.NEXT_DIST_DIR || 'build'),
   typescript: {
     ignoreBuildErrors: true,
   },
